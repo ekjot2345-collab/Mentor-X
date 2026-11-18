@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1820" />
+    <meta name="description" content="MentorX - a thoughtful AI mentor for learning DSA one hint at a time." />
+    <title>MentorX | Learn the way mentors teach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="MentorX home">
+          <span class="brand-mark"><i></i><i></i><i></i></span>
+          <span>Mentor<span>X</span></span>
+        </a>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a class="nav-item active" href="#today"><span class="nav-icon">⌂</span>Today</a>
+          <a class="nav-item" href="#roadmap"><span class="nav-icon">⌁</span>My roadmap</a>
+          <a class="nav-item" href="#sessions"><span class="nav-icon">◫</span>Sessions</a>
+          <a class="nav-item" href="#progress"><span class="nav-icon">◔</span>Progress</a>
+        </nav>
+
+        <section class="sidebar-focus" aria-label="Current focus">
+          <p class="eyebrow">Your current focus</p>
+          <p>Data structures<br /><strong>in motion</strong></p>
+          <div class="focus-track"><span></span></div>
+          <small>6 of 10 foundations</small>
+        </section>
+
+        <div class="profile">
+          <div class="avatar">A</div>
+          <div><strong>Aanya Shah</strong><small>Thoughtful learner</small></div>
+          <button class="dots" aria-label="Profile options">•••</button>
+        </div>
+      </aside>
+
+      <section class="workspace" id="top">
+        <header class="topbar">
+          <button class="menu-button" aria-label="Open menu">☰</button>
+          <p><span class="presence-dot"></span> Your mentor is here</p>
+          <div class="topbar-actions">
+            <button class="icon-button" aria-label="View notifications">⌁</button>
+            <button class="help-button" aria-label="Get help">?</button>
+          </div>
+        </header>
+
+        <div class="content" id="today">
+          <section class="welcome-grid">
+            <div class="welcome-copy">
+              <p class="eyebrow">Tuesday, 18 November</p>
+              <h1>Make room for the<br /><em>aha</em> moment.</h1>
+              <p class="intro">A small, well-timed nudge beats a rushed answer. What are you thinking through today?</p>
+              <a class="text-link" href="#mentor-space">Continue your session <span>→</span></a>
+            </div>
+
+            <article class="streak-card">
+              <div class="streak-orbit"><span>✦</span></div>
+              <div>
+                <p class="eyebrow">Learning rhythm</p>
+                <strong>04 <small>day streak</small></strong>
+                <p>Consistency is becoming your edge.</p>
+              </div>
+              <div class="week" aria-label="Weekly learning activity"><b>M</b><b class="done">T</b><b class="done">W</b><b class="done">T</b><b class="today">F</b><b>S</b><b>S</b></div>
+            </article>
+          </section>
+
+          <section class="mentor-space" id="mentor-space">
+            <div class="section-heading">
+              <div><p class="eyebrow">Mentor space</p><h2>Where are you stuck?</h2></div>
+              <span class="session-status"><i></i> Session active</span>
+            </div>
+
+            <div class="mentor-layout">
+              <article class="conversation-card">
+                <div class="problem-meta"><span class="problem-chip">Problem 07</span><span>Arrays · Medium</span><button aria-label="More problem options">•••</button></div>
+                <h3 id="problem-title">Two Sum — find the pair, not just the answer.</h3>
+                <p class="problem-context" id="problem-context">Given an array of integers and a target, return the indices of two numbers that add up to the target.</p>
+
+                <div class="mentor-message">
+                  <div class="mentor-avatar"><span class="brand-mark small"><i></i><i></i><i></i></span></div>
+                  <div>
+                    <p class="message-name">MentorX <span>· just now</span></p>
+                    <p id="hint-copy">Before you reach for nested loops, pause. What information from each number could make the next lookup feel instant?</p>
+                  </div>
+                </div>
+
+                <div class="hint-stage" aria-label="Hint progression">
+                  <span class="active">01<br /><small>Reflect</small></span><i></i><span>02<br /><small>Connect</small></span><i></i><span>03<br /><small>Sketch</small></span><i></i><span>04<br /><small>Review</small></span>
+                </div>
+
+                <div class="mentor-actions">
+                  <button class="primary-button" id="next-hint">I need another hint <span>→</span></button>
+                  <button class="quiet-button" id="understand-button">I think I see it</button>
+                </div>
+              </article>
+
+              <aside class="pulse-card" id="progress">
+                <div class="pulse-top"><p class="eyebrow">Your pulse</p><span>this week</span></div>
+                <div class="pulse-score"><strong>76</strong><span>/100</span><em>↑ 12</em></div>
+                <p>You're building a stronger habit of explaining your reasoning.</p>
+                <svg class="chart" viewBox="0 0 260 80" role="img" aria-label="Learning rhythm trending upward">
+                  <path d="M0 69 C20 72 31 57 48 61 S78 37 94 47 S125 50 139 32 S168 43 184 25 S210 39 226 17 S247 22 260 6" fill="none" stroke="#f46f55" stroke-width="3" stroke-linecap="round" />
+                  <path d="M0 69 C20 72 31 57 48 61 S78 37 94 47 S125 50 139 32 S168 43 184 25 S210 39 226 17 S247 22 260 6 V80 H0 Z" fill="url(#gradient)" opacity=".26" />
+                  <defs><linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#f46f55"/><stop offset="1" stop-color="#f46f55" stop-opacity="0"/></linearGradient></defs>
+                </svg>
+                <div class="pulse-note"><span>✦</span><p><strong>Pattern noticed</strong><br />You learn fastest after writing the approach first.</p></div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="topic-section" id="roadmap">
+            <div class="section-heading inline-heading"><div><p class="eyebrow">Build your thinking</p><h2>Choose a thread to pull.</h2></div><a href="#roadmap" class="text-link">View roadmap <span>→</span></a></div>
+            <div class="topic-grid">
+              <button class="topic-card selected" data-title="Two Sum — find the pair, not just the answer." data-context="Given an array of integers and a target, return the indices of two numbers that add up to the target." data-hint="Before you reach for nested loops, pause. What information from each number could make the next lookup feel instant?"><span class="topic-number">01</span><span class="topic-icon">⌗</span><strong>Arrays & hashing</strong><small>7 challenges remaining</small><i>→</i></button>
+              <button class="topic-card" data-title="Trust the function to solve the smaller story." data-context="Explore how recursive calls reduce a problem until one simple case remains." data-hint="Try describing the base case aloud. What is the smallest input where the answer needs no further work?"><span class="topic-number">02</span><span class="topic-icon">↺</span><strong>Recursion</strong><small>4 challenges remaining</small><i>→</i></button>
+              <button class="topic-card" data-title="Let the order do some of the thinking." data-context="Use the sorted structure of data to eliminate possibilities with intent." data-hint="Imagine two pointers at opposite ends. Which movement can never make your sum more wrong?"><span class="topic-number">03</span><span class="topic-icon">⌁</span><strong>Two pointers</strong><small>8 challenges remaining</small><i>→</i></button>
+            </div>
+          </section>
+
+          <section class="architecture" id="sessions">
+            <div class="architecture-copy"><p class="eyebrow">Built for independent learning</p><h2>A mentor that reveals <em>just enough.</em></h2><p>MentorX keeps the learner in the driver’s seat: it listens, gauges the moment, and responds with the next useful level of help.</p></div>
+            <div class="architecture-flow">
+              <div><span>01</span><strong>Input</strong><small>Question or voice</small></div><i>→</i><div><span>02</span><strong>Mentor</strong><small>Session context</small></div><i>→</i><div><span>03</span><strong>Hint engine</strong><small>Right amount of help</small></div><i>→</i><div><span>04</span><strong>Response</strong><small>Screen or speaker</small></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
