@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="struggle-engine.css" />
   </head>
   <body>
     <div class="ambient ambient-one"></div>
@@ -115,6 +116,31 @@
                 <div class="pulse-note"><span>✦</span><p><strong>Pattern noticed</strong><br />You learn fastest after writing the approach first.</p></div>
               </aside>
             </div>
+
+            <section class="struggle-engine" aria-labelledby="engine-title">
+              <div class="engine-intro">
+                <p class="eyebrow"><span class="usp-badge">MentorX USP</span> Struggle detection engine</p>
+                <h3 id="engine-title">Notice the stuck moment<br />before it becomes a stop.</h3>
+                <p>This session-aware layer watches for learning friction, then changes the kind of nudge MentorX offers. It does not grade the learner; it protects their momentum.</p>
+              </div>
+              <div class="engine-panel">
+                <div class="engine-panel-top">
+                  <div><p class="eyebrow">Live friction signal</p><strong><span id="friction-score">46</span><small>/100</small></strong></div>
+                  <span class="friction-label" id="friction-label">Gentle pause</span>
+                </div>
+                <div class="friction-meter" aria-label="Current friction score"><span id="friction-bar"></span></div>
+                <div class="signal-list" aria-label="Signals being measured">
+                  <span><i class="signal-dot coral"></i><b id="time-signal">38m</b> with this problem</span>
+                  <span><i class="signal-dot amber"></i><b id="retry-signal">2</b> repeated attempts</span>
+                  <span><i class="signal-dot mint"></i><b id="hint-signal">0</b> hints requested</span>
+                </div>
+                <div class="engine-cue"><span>✦</span><p><strong id="cue-title">Recommended next move</strong><br /><span id="cue-copy">Ask a question that narrows the search space without naming the data structure.</span></p></div>
+                <div class="engine-controls">
+                  <button id="retry-button" class="signal-button">Log another retry</button>
+                  <button id="breakthrough-button" class="signal-button recovery">I found a direction</button>
+                </div>
+              </div>
+            </section>
           </section>
 
           <section class="topic-section" id="roadmap">
