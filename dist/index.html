@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="struggle-engine.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <div class="ambient ambient-one"></div>
@@ -26,7 +27,7 @@
         <nav class="primary-nav" aria-label="Primary navigation">
           <a class="nav-item active" href="#today"><span class="nav-icon">⌂</span>Today</a>
           <a class="nav-item" href="#roadmap"><span class="nav-icon">⌁</span>My roadmap</a>
-          <a class="nav-item" href="#sessions"><span class="nav-icon">◫</span>Sessions</a>
+          <a class="nav-item" href="#question-bank"><span class="nav-icon">◫</span>Practice library</a>
           <a class="nav-item" href="#progress"><span class="nav-icon">◔</span>Progress</a>
         </nav>
 
@@ -49,8 +50,9 @@
           <button class="menu-button" aria-label="Open menu">☰</button>
           <p><span class="presence-dot"></span> Your mentor is here</p>
           <div class="topbar-actions">
-            <button class="icon-button" aria-label="View notifications">⌁</button>
-            <button class="help-button" aria-label="Get help">?</button>
+            <button class="icon-button" id="library-button" aria-label="Open practice library" title="Open practice library">⌁</button>
+            <button class="help-button" id="help-button" aria-label="Learn how MentorX works" title="Learn how MentorX works">?</button>
+            <div id="google-signin" aria-label="Google sign in"></div>
           </div>
         </header>
 
@@ -102,6 +104,19 @@
                   <button class="primary-button" id="next-hint">I need another hint <span>→</span></button>
                   <button class="quiet-button" id="understand-button">I think I see it</button>
                 </div>
+
+                <section class="explanation-panel" aria-labelledby="explanation-title">
+                  <div>
+                    <p class="eyebrow">Knowledge check</p>
+                    <h4 id="explanation-title">Explain your approach.</h4>
+                    <p>Tell MentorX what you would do and why. It checks concepts, not perfect wording.</p>
+                  </div>
+                  <textarea id="explanation-input" rows="4" placeholder="Example: I would store each number in a hash map, then look for the complement as I scan..."></textarea>
+                  <div class="explanation-actions">
+                    <button class="quiet-button" id="evaluate-explanation">Check my explanation</button>
+                    <p id="explanation-result" aria-live="polite"></p>
+                  </div>
+                </section>
               </article>
 
               <aside class="pulse-card" id="progress">
@@ -146,10 +161,17 @@
           <section class="topic-section" id="roadmap">
             <div class="section-heading inline-heading"><div><p class="eyebrow">Build your thinking</p><h2>Choose a thread to pull.</h2></div><a href="#roadmap" class="text-link">View roadmap <span>→</span></a></div>
             <div class="topic-grid">
-              <button class="topic-card selected" data-title="Two Sum — find the pair, not just the answer." data-context="Given an array of integers and a target, return the indices of two numbers that add up to the target." data-hint="Before you reach for nested loops, pause. What information from each number could make the next lookup feel instant?"><span class="topic-number">01</span><span class="topic-icon">⌗</span><strong>Arrays & hashing</strong><small>7 challenges remaining</small><i>→</i></button>
-              <button class="topic-card" data-title="Trust the function to solve the smaller story." data-context="Explore how recursive calls reduce a problem until one simple case remains." data-hint="Try describing the base case aloud. What is the smallest input where the answer needs no further work?"><span class="topic-number">02</span><span class="topic-icon">↺</span><strong>Recursion</strong><small>4 challenges remaining</small><i>→</i></button>
-              <button class="topic-card" data-title="Let the order do some of the thinking." data-context="Use the sorted structure of data to eliminate possibilities with intent." data-hint="Imagine two pointers at opposite ends. Which movement can never make your sum more wrong?"><span class="topic-number">03</span><span class="topic-icon">⌁</span><strong>Two pointers</strong><small>8 challenges remaining</small><i>→</i></button>
+              <button class="topic-card selected" data-problem-id="two-sum" data-title="Two Sum — find the pair, not just the answer." data-context="Given an array of integers and a target, return the indices of two numbers that add up to the target." data-hint="Before you reach for nested loops, pause. What information from each number could make the next lookup feel instant?"><span class="topic-number">01</span><span class="topic-icon">⌗</span><strong>Arrays & hashing</strong><small>7 challenges remaining</small><i>→</i></button>
+              <button class="topic-card" data-problem-id="recursion-base-case" data-title="Trust the function to solve the smaller story." data-context="Explore how recursive calls reduce a problem until one simple case remains." data-hint="Try describing the base case aloud. What is the smallest input where the answer needs no further work?"><span class="topic-number">02</span><span class="topic-icon">↺</span><strong>Recursion</strong><small>4 challenges remaining</small><i>→</i></button>
+              <button class="topic-card" data-problem-id="container-most-water" data-title="Let the order do some of the thinking." data-context="Use the sorted structure of data to eliminate possibilities with intent." data-hint="Imagine two pointers at opposite ends. Which movement can never make your sum more wrong?"><span class="topic-number">03</span><span class="topic-icon">⌁</span><strong>Two pointers</strong><small>8 challenges remaining</small><i>→</i></button>
             </div>
+          </section>
+
+          <section class="question-bank" id="question-bank" aria-labelledby="question-bank-title">
+            <div class="section-heading inline-heading"><div><p class="eyebrow">Practice library</p><h2 id="question-bank-title">30 LeetCode questions to build with.</h2></div><p class="bank-note">Three examples per topic.</p></div>
+            <p class="bank-intro">Each example includes the concepts MentorX expects a learner to explain. Choose a live question above to receive progressive hints.</p>
+            <div class="question-bank-filters" id="question-bank-filters" aria-label="Filter practice questions by topic"></div>
+            <div class="question-bank-grid" id="question-bank-grid" aria-live="polite"></div>
           </section>
 
           <section class="architecture" id="sessions">
@@ -162,6 +184,8 @@
       </section>
     </main>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="google-config.js"></script>
+    <script src="mentor-data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

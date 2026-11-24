@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "problems": [
+    {
+      "id": "two-sum",
+      "title": "Two Sum",
+      "topic": "Arrays and Hashing",
+      "difficulty": "Medium",
+      "problem_summary": "Given an integer array and a target, return the indices of two different numbers whose sum equals the target.",
+      "hints": [
+        {"level": 1, "stage": "Reflect", "text": "Before choosing a method, ask yourself: for the current number, which value would complete the target?"},
+        {"level": 2, "stage": "Connect", "text": "If you have already seen the needed value, you only need a fast way to find where you saw it. What information could you store as you scan?"},
+        {"level": 3, "stage": "Sketch", "text": "Try maintaining a lookup from each number to its index. For every new number, check whether target minus that number is already in the lookup."},
+        {"level": 4, "stage": "Pseudocode", "text": "For each index and value: compute complement = target - value. If complement exists in the lookup, return its stored index and the current index. Otherwise store value with its index."},
+        {"level": 5, "stage": "Explain", "text": "This scans the array once and uses a hash map for fast lookups, so time complexity is O(n). Check the complement before storing the current number so one element is not used twice."}
+      ]
+    },
+    {
+      "id": "recursion-base-case",
+      "title": "Recursive Factorial",
+      "topic": "Recursion",
+      "difficulty": "Easy",
+      "problem_summary": "Return the factorial of a non-negative integer using recursion.",
+      "hints": [
+        {"level": 1, "stage": "Reflect", "text": "What is the smallest input for which factorial has an answer without another recursive call?"},
+        {"level": 2, "stage": "Connect", "text": "Each call should make the input smaller. Which single arithmetic operation links n to the factorial of a smaller number?"},
+        {"level": 3, "stage": "Sketch", "text": "Define a base case for zero or one. Otherwise, combine the current number with the result of solving factorial for one less."},
+        {"level": 4, "stage": "Pseudocode", "text": "If n is zero or one, return one. Otherwise return n multiplied by factorial of n minus one."},
+        {"level": 5, "stage": "Explain", "text": "The base case stops recursion, while the recursive case reduces n each time. This takes O(n) time and O(n) call-stack space."}
+      ]
+    },
+    {
+      "id": "container-most-water",
+      "title": "Container With Most Water",
+      "topic": "Two Pointers",
+      "difficulty": "Medium",
+      "problem_summary": "Choose two vertical lines that form a container holding the maximum possible water.",
+      "hints": [
+        {"level": 1, "stage": "Reflect", "text": "The area depends on both the distance between lines and the shorter height. Which of these can increase when two pointers move inward?"},
+        {"level": 2, "stage": "Connect", "text": "Start at the two ends. If one height is shorter, moving the taller line cannot make the current limiting height larger. Which pointer is worth moving?"},
+        {"level": 3, "stage": "Sketch", "text": "Keep left and right pointers. Compute the area, remember the best one, then move the pointer at the shorter line inward."},
+        {"level": 4, "stage": "Pseudocode", "text": "While left is before right: calculate width times the smaller height, update the maximum, then move left if its height is smaller; otherwise move right."},
+        {"level": 5, "stage": "Explain", "text": "Moving the shorter boundary is the only chance to improve the limiting height. Each pointer moves at most once across the array, giving O(n) time and O(1) extra space."}
+      ]
+    }
+  ]
+}

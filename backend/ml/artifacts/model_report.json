@@ -1,0 +1,43 @@
+{
+  "selected_model": "logistic_regression",
+  "selection_metric": "highest validation F1, then accuracy",
+  "feature_names": [
+    "minutes_stuck",
+    "repeated_attempts",
+    "hint_requests",
+    "breakthroughs",
+    "current_hint_level",
+    "difficulty"
+  ],
+  "dataset": {
+    "total_synthetic_sessions": 3000,
+    "training_sessions": 2250,
+    "held_out_validation_sessions": 750,
+    "random_seed": 42
+  },
+  "results": {
+    "logistic_regression": {
+      "accuracy": 0.7413,
+      "precision": 0.7407,
+      "recall": 0.7447,
+      "f1": 0.7427,
+      "roc_auc": 0.8198
+    },
+    "decision_tree": {
+      "accuracy": 0.7107,
+      "precision": 0.7033,
+      "recall": 0.7314,
+      "f1": 0.7171,
+      "roc_auc": 0.7773
+    },
+    "random_forest": {
+      "accuracy": 0.7333,
+      "precision": 0.7353,
+      "recall": 0.7314,
+      "f1": 0.7333,
+      "roc_auc": 0.811
+    }
+  },
+  "synthetic_data_notice": "These validation metrics measure fit to simulated data only. They are not evidence of performance with real students.",
+  "real_world_validation_plan": "Collect consented learner feedback after hints, split future data by learner, and compare model recommendations against the rule-based baseline."
+}
